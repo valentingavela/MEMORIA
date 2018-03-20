@@ -12,11 +12,28 @@
 
 class ImageClass{
 public:
-	void load(string _name);
+	void setup();
+	void update();
 	void draw();
 	ofImage image ;
-	int height ;
-	int width ;
+
+	int fondo;
+	int a;
+	int b;
+	int c;
+	int d;
+	int e;
+
+	int randX = 1;
+	int randY = 1;
+	int randZ = 1;
+
+	int mouseX;
+	int mouseY;
+	int mapX;
+	int mapY;
+
+	float mapZ = 0;
 };
 
 
