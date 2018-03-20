@@ -4,6 +4,8 @@
 #include "ofEvents.h"
 #include "ImageClass.h"
 
+//TODO: A CADA UNO LE VOY A SACAR UNA CAPTURA
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -23,6 +25,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		ImageClass image ;
-//		int criterio ; //Criterio 1, es
+
+		//ImageClass image[] ;
 };

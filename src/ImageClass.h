@@ -12,9 +12,8 @@
 
 class ImageClass{
 public:
-	void setup(string _name);
+	void load(string _name);
 	void draw();
-	void dimensions(ofImage image);
 	ofImage image ;
 	int height ;
 	int width ;
