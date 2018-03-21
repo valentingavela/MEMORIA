@@ -18,11 +18,6 @@ public:
 	ofImage image ;
 
 	int fondo;
-	int a;
-	int b;
-	int c;
-	int d;
-	int e;
 
 	int randX = 1;
 	int randY = 1;

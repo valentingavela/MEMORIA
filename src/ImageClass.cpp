@@ -7,7 +7,8 @@
 
 #include "ImageClass.h"
 
-std::vector<ofImage> images(40);
+std::vector<ofImage> images(45);
+std::vector<int> selrandom(20);
 std::vector<int> signum(10);
 std::vector<int> resized(10);
 
@@ -15,13 +16,17 @@ int sizefactor;
 
 void ImageClass::setup()
 {
+	//Elijo Fondo Random
 	fondo = ofRandom(0, 5);
-	a = ofRandom(5, 40);
-	b = ofRandom(5, 40);
-	c = ofRandom(5, 40);
-	d = ofRandom(5, 40);
-	e = ofRandom(5, 40);
 
+	// Genero un selector de fotos random
+	for (int i = 0; i < selrandom.size(); ++i)
+	{
+		selrandom[i] = ofRandom(5, 45);
+	}
+
+	//Genero un numero positivo o negativo 
+	//para randomizar su comportamiento
 	for (int i = 0; i < signum.size(); ++i)
 	{
 		if ((int)ofRandom(0, 2) == 1)
@@ -34,9 +39,11 @@ void ImageClass::setup()
 		}
 	}
 
+	//Genero un resize random
+	//algunas se van a agrandar y otras a  achicar
 	for (int i = 0; i < resized.size(); ++i)
 	{
-		sizefactor = ofRandom(0, 500);
+		sizefactor = ofRandom(0, 50);
 		if ((int)ofRandom(0, 2) == 1)
 		{
 			resized[i] = 1 * sizefactor;
@@ -47,10 +54,13 @@ void ImageClass::setup()
 		}
 	}
 
+	//Finalmente cargo a memoria las imagenes
 	for (int i = 1; i < images.size(); ++i)
 	{
 		images[i].load(ofToString(i) + ".png");
 	}
+
+	images[selrandom[0]].rotate90(2);
 }
 
 void ImageClass::update()
@@ -59,8 +69,8 @@ void ImageClass::update()
 	mouseX = ofGetMouseX();
 	mouseY = ofGetMouseY();
 
-	mapX = ofMap(mouseX, 0, ofGetWidth(), 0, 100);
-	mapY = ofMap(mouseY, 0, ofGetHeight(), 0, 100);
+	mapX = ofMap(mouseX, 0, ofGetWidth(), 0, 50);
+	mapY = ofMap(mouseY, 0, ofGetHeight(), 0, 50);
 	mapZ = ofMap(mouseX, 0, ofGetWidth(), 0, -100);
 
 	//ofLog() << "n\ X is " << mapX << " Y is " << mapY << " Z is " << mapZ;
@@ -74,12 +84,13 @@ void ImageClass::draw()
 	//images[a].draw(mapX, mapY, mapZ, ofGetWidth(), ofGetHeight());
 	//images[b].draw(!mapX, mapY, mapZ, ofGetWidth(), ofGetHeight());
 	//images[c].draw(mapX, !mapY, mapZ, ofGetWidth(), ofGetHeight());
-	//---
-	images[a].draw(mapX * signum[0], mapY * signum[1], mapZ * signum[1] + resized[1], ofGetWidth(), ofGetHeight());
-	images[b].draw(mapX * signum[2], mapY * signum[3], mapZ * signum[2] + resized[2], ofGetWidth(), ofGetHeight());
-	images[c].draw(mapX * signum[4], mapY * signum[5], mapZ * signum[3] + resized[3], ofGetWidth(), ofGetHeight());
-	images[d].draw(mapX * signum[6], mapY * signum[7], mapZ * signum[4] + resized[4], ofGetWidth(), ofGetHeight());
-	images[e].draw(mapX * signum[8], mapY * signum[9], mapZ * signum[5] + resized[5], ofGetWidth(), ofGetHeight());
+	//---+++
+	for (int i = 0; i < 8; i++)
+	{
+//		images[selrandom[i]].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+//		images[selrandom[i]].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i], ofGetWidth(), ofGetHeight());
+		images[selrandom[i]].draw(mapX * signum[i], mapY * signum[i], ofGetWidth(), ofGetHeight()) ;
+	}
 }
 
 
