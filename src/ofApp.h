@@ -3,6 +3,11 @@
 #include "ofMain.h"
 #include "ofEvents.h"
 #include "ImageClass.h"
+#include "ofxOsc.h"
+//#include "ofxGui.h"
+
+#define PORT 12345
+#define NUM_MSG_STRINGS 20
 
 //TODO: FALTAN LAS ROTACIONES
 //TODO: A CADA UNO LE VOY A SACAR UNA SCREENSHOT
@@ -15,6 +20,7 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
+		void oscReceiver();
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -29,4 +35,21 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		ImageClass imageClass ;
+		//kinectOscReceiver kinect ;
+		
+		//osc
+		ofxOscReceiver receiver;
+
+		int current_msg_string;
+		string msg_strings[NUM_MSG_STRINGS];
+		float timers[NUM_MSG_STRINGS];
+		
+		ofTrueTypeFont font;
+		
+		ofVec3f handLeft;
+		ofVec3f handRight;
+		ofVec3f head;
+		uint64_t bodyId;
+		int i;
+		//--
 };
