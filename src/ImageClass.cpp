@@ -111,6 +111,10 @@ void ImageClass::guiSetup()
 	gui.add(minZ.setup("minZ", 0, 0, 600));
 	gui.add(maxZ.setup("maxZ", 0, 0, 600));
 	//-
+	if (!ofFile("settings.xml"))
+		gui.saveToFile("settings.xml");
+
+	gui.loadFromFile("settings.xml");
 }
 
 void ImageClass::guiDraw()
