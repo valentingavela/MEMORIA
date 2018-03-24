@@ -40,7 +40,7 @@ void ImageClass::setup()
 	loadImagesRandom();
 	//images[selrandom[0]].rotate90(2);
 
-	interval = 15;
+	//interval = 5;
 	futureTime = interval;
 }
 
@@ -62,17 +62,16 @@ void ImageClass::update(ofVec3f xyz)
 	{
 		updateImagesRandom();
 
-		if (collageNum < 12)
-		{
-			collageNum = collageNum + 1;
-		}
-		else
-		{
-			collageNum = 1;
-		}
-
 		if (whatsdraw == 0)
-		{
+		{			
+			if (collageNum < 12)
+			{
+				collageNum = collageNum + 1;
+			}
+			else
+			{
+				collageNum = 1;
+			}
 			whatsdraw = 1;
 		}
 		else
@@ -104,6 +103,7 @@ void ImageClass::guiSetup()
 	//-GUI
 	gui.setup();
 	gui.add(collageNum.setup("CollageNum", 1, 1, 12));
+	gui.add(interval.setup("Interval", 8, 8, 300));
 	gui.add(minX.setup("minX", 0, 0, 600));
 	gui.add(maxX.setup("maxX", 0, 0, 600));
 	gui.add(minY.setup("minY", 0, 0, 600));
@@ -195,7 +195,12 @@ void ImageClass::drawCollages(int collage)
 	{
 		for (int i = 0; i < col1.size(); ++i)
 		{
-			col1[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			//col1[i].draw(mapX, mapY, mapZ, ofGetWidth(), ofGetHeight());
+			//col1[i].draw(!mapX, mapY, mapZ, ofGetWidth(), ofGetHeight());
+			//col1[i].draw(mapX, !mapY, mapZ, ofGetWidth(), ofGetHeight());
+			col1[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+			//col1[i].draw(mapX * signum[i], mapY * signum[i], ofGetWidth(), ofGetHeight());
+			//col1[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
 	//COLLAGE2
@@ -203,7 +208,9 @@ void ImageClass::drawCollages(int collage)
 	{
 		for (int i = 0; i < col2.size(); ++i)
 		{
-			col2[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			col2[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+
+//			col2[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
 	//COLLAGE3
@@ -211,7 +218,9 @@ void ImageClass::drawCollages(int collage)
 	{
 		for (int i = 0; i < col3.size(); ++i)
 		{
-			col3[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			col3[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+
+			//col3[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
 	//COLLAGE4
@@ -219,7 +228,9 @@ void ImageClass::drawCollages(int collage)
 	{
 		for (int i = 0; i < col4.size(); ++i)
 		{
-			col4[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			col4[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+
+			//col4[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
 	//COLLAGE5
@@ -227,7 +238,9 @@ void ImageClass::drawCollages(int collage)
 	{
 		for (int i = 0; i < col5.size(); ++i)
 		{
-			col5[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			col5[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+
+//			col5[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
 	//COLLAGE6
@@ -235,7 +248,9 @@ void ImageClass::drawCollages(int collage)
 	{
 		for (int i = 0; i < col6.size(); ++i)
 		{
-			col6[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			col6[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+
+			//col6[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
 	//COLLAGE7
@@ -243,7 +258,9 @@ void ImageClass::drawCollages(int collage)
 	{
 		for (int i = 0; i < col7.size(); ++i)
 		{
-			col7[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			col7[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+
+			//col7[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
 	//COLLAGE8
@@ -251,7 +268,9 @@ void ImageClass::drawCollages(int collage)
 	{
 		for (int i = 0; i < col8.size(); ++i)
 		{
-			col8[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			col8[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+
+			//col8[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
 	//COLLAGE9
@@ -259,7 +278,9 @@ void ImageClass::drawCollages(int collage)
 	{
 		for (int i = 0; i < col9.size(); ++i)
 		{
-			col9[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			col9[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+
+			//col9[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
 	//COLLAGE10
@@ -267,23 +288,33 @@ void ImageClass::drawCollages(int collage)
 	{
 		for (int i = 0; i < col10.size(); ++i)
 		{
-			col10[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			col10[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+
+			//col10[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
 	else if (collage == 11)
 	{
 		for (int i = 0; i < col11.size(); ++i)
 		{
-			col11[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			col11[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+
+			//col11[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
 	else if (collage == 12)
 	{
 		for (int i = 0; i < col12.size(); ++i)
 		{
-			col12[i].draw(0, 0, ofGetWidth(), ofGetHeight());
+			col12[i].draw(mapX * signum[i], mapY * signum[i], mapZ * signum[i] + resized[i], ofGetWidth(), ofGetHeight());
+
+			//col12[i].draw(0, 0, ofGetWidth(), ofGetHeight());
 		}
 	}
+}
+
+void ImageClass::updateCollages()
+{
 }
 
 void ImageClass::loadImagesRandom()

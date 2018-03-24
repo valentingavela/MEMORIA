@@ -15,6 +15,7 @@ class ImageClass{
 public:
 	void loadCollages();
 	void drawCollages(int collage);
+	void updateCollages();
 	void loadImagesRandom();
 	void updateImagesRandom();
 	void drawImagesRandom();
@@ -32,7 +33,7 @@ public:
 	
 	int actualTime = 0;
 	int futureTime = 0;
-	int interval = 0;
+	//int interval = 0;
 	int whatsdraw = 0;
 
 	int randX = 1;
@@ -48,6 +49,7 @@ public:
 
 	//-GUI
 	ofxPanel gui;
+	ofxIntSlider interval;
 	ofxIntSlider collageNum;
 	ofxFloatSlider minX;
 	ofxFloatSlider maxX;

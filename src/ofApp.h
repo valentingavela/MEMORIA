@@ -4,7 +4,7 @@
 #include "ofEvents.h"
 #include "ImageClass.h"
 #include "ofxOsc.h"
-//#include "ofxGui.h"
+//#include "ofxSpout.h"
 
 #define PORT 12345
 #define NUM_MSG_STRINGS 20
@@ -51,5 +51,10 @@ class ofApp : public ofBaseApp{
 		ofVec3f head;
 		uint64_t bodyId;
 		int i;
+		//--
+
+		//SPOUT
+		//ofVideoGrabber camera;
+		//ofxSpout::Sender sender;
 		//--
 };
