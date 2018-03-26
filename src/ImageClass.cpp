@@ -50,6 +50,8 @@ void ImageClass::update(ofVec3f xyz)
 	//mapY = ofMap(xyz.y, -1, 1, 0, 50);
 	//mapZ = ofMap(xyz.z, 0, 1, 0, -100);
 
+	ofLog() << "XYZ: " << xyz;
+
 	mapX = ofMap(xyz.x, -1, 1, minX, maxX);
 	mapY = ofMap(xyz.y, -1, 1, minY, maxY);
 	mapZ = ofMap(xyz.z, 0, 1, minZ, maxZ);

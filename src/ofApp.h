@@ -50,6 +50,8 @@ class ofApp : public ofBaseApp{
 		ofVec3f handRight;
 		ofVec3f head;
 		uint64_t bodyId;
+//		int64_t bodyId;
+
 		int i;
 		//--
 

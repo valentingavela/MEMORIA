@@ -35,10 +35,11 @@ void ofApp::update(){
 void ofApp::draw(){
 	imageClass.draw();
 
-	ofDrawBitmapString("Body Id: " + ofToString(bodyId), 0, 20);
-	ofDrawBitmapString("Hand Right x: " + ofToString(handRight.x) + " y: " + ofToString(handRight.y) + " z: " + ofToString(handRight.z), 0, 50);
-	ofDrawBitmapString("Hand Left x: " + ofToString(handLeft.x) + " y: " + ofToString(handLeft.y) + " z: " + ofToString(handLeft.z), 0, 100);
-	ofDrawBitmapString("Head x: " + ofToString(head.x) + " y: " + ofToString(head.y) + " z: " + ofToString(head.z), 0, 150);
+
+	//ofDrawBitmapString("Body Id: " + ofToString(bodyId), 0, 20);
+	//ofDrawBitmapString("Hand Right x: " + ofToString(handRight.x) + " y: " + ofToString(handRight.y) + " z: " + ofToString(handRight.z), 0, 50);
+	//ofDrawBitmapString("Hand Left x: " + ofToString(handLeft.x) + " y: " + ofToString(handLeft.y) + " z: " + ofToString(handLeft.z), 0, 100);
+	//ofDrawBitmapString("Head x: " + ofToString(head.x) + " y: " + ofToString(head.y) + " z: " + ofToString(head.z), 0, 150);
 
 }
 
